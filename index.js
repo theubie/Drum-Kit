@@ -8,9 +8,13 @@ drumButtons.forEach(function(button) {
     button.style.backgroundImage = "url('images/" + drum + ".png')";
     //Set the click callback
     button.addEventListener("click", function() {
-      //Button clicked
+      //Play the sound
       var drumSound = new Audio("sounds/" + this.getAttribute("data-drum") + ".mp3");
       drumSound.play();
+      button.classList.add("pressed");
+      setTimeout(function(){
+        button.classList.remove("pressed");
+      },100);
     })
   } else {
     //Did not set the data-drum attribute
